@@ -1,15 +1,15 @@
 ﻿using Algorithms.UnionFind;
+
 using NUnit.Framework;
 
 namespace AlgorithmsTest {
-
   [TestFixture]
-  public class QuickUnionTest {
-    private QuickUnion _quickFind;
+  public class QuickUnionWithWeightingTest {
+    private QuickUnionWithWeighting _quickFind;
 
     [TestFixtureSetUp]
     public void Setup() {
-      _quickFind = new QuickUnion( 10 );
+      _quickFind = new QuickUnionWithWeighting( 10 );
     }
 
     [Test]
@@ -21,7 +21,7 @@ namespace AlgorithmsTest {
       _quickFind.Union( 2, 1 );
       Assert.That( _quickFind.Connected( 8, 9 ), Is.True );
       Assert.That( _quickFind.Connected( 5, 4 ), Is.False );
-      
+
       _quickFind.Union( 5, 0 );
       _quickFind.Union( 7, 2 );
       _quickFind.Union( 6, 1 );

@@ -69,9 +69,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="SearchListTest.cs" />
     <Compile Include="QuickUnionTest.cs" />
     <Compile Include="QuickFindTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuickUnionWithWeightTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
