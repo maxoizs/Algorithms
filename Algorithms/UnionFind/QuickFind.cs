@@ -7,21 +7,21 @@ namespace Algorithms.UnionFind {
 
     public QuickFind( int capacity ) {
       for ( var x = 0; x < capacity; x++ ) {
-        this._route.Add( x );
+        _route.Add( x );
       }
     }
 
     public void Union( int x, int y ) {
-      if ( this.Connected( x, y ) ) {
+      if ( Connected( x, y ) ) {
         return;
       }
 
-      var oldLink = this._route[y];
-      this._route[y] = this._route[x];
+      var oldLink = _route[y];
+      _route[y] = _route[x];
 
-      for ( var l = 0; l < this._route.Count; l++ ) {
-        if ( this._route[l] == oldLink ) {
-          this._route[l] = this._route[x];
+      for ( var l = 0; l < _route.Count; l++ ) {
+        if ( _route[l] == oldLink ) {
+          _route[l] = _route[x];
         }
 
       }
@@ -29,7 +29,7 @@ namespace Algorithms.UnionFind {
     }
 
     public bool Connected( int x, int y ) {
-      return this._route[x] == this._route[y];
+      return _route[x] == _route[y];
     }
   }
 }

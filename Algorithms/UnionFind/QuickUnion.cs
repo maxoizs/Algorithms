@@ -3,11 +3,11 @@
 namespace Algorithms.UnionFind {
 
   public class QuickUnion {
-    private readonly List<int> _route = new List<int>();
+    public readonly List<int> TreeList = new List<int>();
 
     public QuickUnion( int capacity ) {
       for ( var x = 0; x < capacity; x++ ) {
-        _route.Add( x );
+        TreeList.Add( x );
       }
     }
 
@@ -16,7 +16,7 @@ namespace Algorithms.UnionFind {
         return;
       }
 
-      _route[GetRoot( x )] = _route[GetRoot( y )];
+      TreeList[GetRoot( y )] = TreeList[GetRoot( x )];
     }
 
     public bool Connected( int x, int y ) {
@@ -24,8 +24,8 @@ namespace Algorithms.UnionFind {
     }
 
     private int GetRoot( int y ) {
-      while ( _route[y] != y ) {
-        y = _route[y];
+      while ( TreeList[y] != y ) {
+        y = TreeList[y];
       }
       return y;
     }
