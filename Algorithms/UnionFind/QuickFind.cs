@@ -1,27 +1,22 @@
-using System.Collections.Generic;
-
 namespace Algorithms.UnionFind {
-  public class QuickFind {
-
-    private readonly List<int> _route = new List<int>();
-
+  public class QuickFind : DumpMe {
     public QuickFind( int capacity ) {
       for ( var x = 0; x < capacity; x++ ) {
-        _route.Add( x );
+        this.Route.Add( x );
       }
     }
 
-    public void Union( int x, int y ) {
-      if ( Connected( x, y ) ) {
+    public void Union( int p, int q ) {
+      if ( Connected( p, q ) ) {
         return;
       }
 
-      var oldLink = _route[y];
-      _route[y] = _route[x];
+      var oldLink = this.Route[p];
+      this.Route[p] = this.Route[q];
 
-      for ( var l = 0; l < _route.Count; l++ ) {
-        if ( _route[l] == oldLink ) {
-          _route[l] = _route[x];
+      for ( var l = 0; l < this.Route.Count; l++ ) {
+        if ( this.Route[l] == oldLink ) {
+          this.Route[l] = this.Route[q];
         }
 
       }
@@ -29,7 +24,7 @@ namespace Algorithms.UnionFind {
     }
 
     public bool Connected( int x, int y ) {
-      return _route[x] == _route[y];
+      return this.Route[x] == this.Route[y];
     }
   }
 }

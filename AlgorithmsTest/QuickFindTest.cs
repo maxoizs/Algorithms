@@ -13,6 +13,19 @@ namespace AlgorithmsTest {
     }
 
     [Test]
+    public void Test_Exam() {
+      //3-6 3-1 4-9 7-8 3-0 8-3 
+      _quickFind.Union( 3, 6 );
+      _quickFind.Union( 3, 1 );
+      _quickFind.Union( 4, 9 );
+      _quickFind.Union( 7, 8 );
+      _quickFind.Union( 3, 0 );
+      _quickFind.Union( 8, 3 );
+      _quickFind.Dump();
+      Assert.That( _quickFind.Connected( 3, 6 ), Is.True );
+    }
+
+    [Test]
     public void Test_ShouldConnectPoints() {
       _quickFind.Union( 3, 4 );
       _quickFind.Union( 3, 8 );
