@@ -1,13 +1,9 @@
-﻿using System.Collections.Generic;
-
-namespace Algorithms.UnionFind {
-
-  public class QuickUnion {
-    public readonly List<int> TreeList = new List<int>();
+﻿namespace Algorithms.UnionFind {
+  public class QuickUnion:DumpMe {
 
     public QuickUnion( int capacity ) {
       for ( var x = 0; x < capacity; x++ ) {
-        TreeList.Add( x );
+        Route.Add( x );
       }
     }
 
@@ -16,7 +12,7 @@ namespace Algorithms.UnionFind {
         return;
       }
 
-      TreeList[GetRoot( y )] = TreeList[GetRoot( x )];
+      Route[GetRoot( y )] = Route[GetRoot( x )];
     }
 
     public bool Connected( int x, int y ) {
@@ -24,8 +20,8 @@ namespace Algorithms.UnionFind {
     }
 
     private int GetRoot( int y ) {
-      while ( TreeList[y] != y ) {
-        y = TreeList[y];
+      while ( Route[y] != y ) {
+        y = Route[y];
       }
       return y;
     }

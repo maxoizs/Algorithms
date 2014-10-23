@@ -2,13 +2,12 @@
 
 namespace Algorithms.UnionFind {
 
-  public class QuickUnionWithWeighting {
-    public readonly List<int> TreeList = new List<int>();
+  public class QuickUnionWithWeighting: DumpMe {
     private readonly List<int> _weight = new List<int>();
 
     public QuickUnionWithWeighting( int capacity ) {
       for ( var x = 0; x < capacity; x++ ) {
-        TreeList.Add( x );
+        this.Route.Add( x );
         _weight.Add( 1 );
       }
     }
@@ -21,11 +20,11 @@ namespace Algorithms.UnionFind {
       }
 
       if ( _weight[rootY] > _weight[rootX] ) {
-        TreeList[rootX] = TreeList[rootY];
+        this.Route[rootX] = this.Route[rootY];
         _weight[rootY] += 1;
 
       } else {
-        TreeList[rootY] = TreeList[rootX];
+        this.Route[rootY] = this.Route[rootX];
         _weight[rootX] += 1;
       }
     }
@@ -35,9 +34,9 @@ namespace Algorithms.UnionFind {
     }
 
     private int GetRoot( int y ) {
-      while ( TreeList[y] != y ) {
-        TreeList[y] = TreeList[TreeList[TreeList[y]]];
-        y = TreeList[y];
+      while ( this.Route[y] != y ) {
+        this.Route[y] = this.Route[this.Route[this.Route[y]]];
+        y = this.Route[y];
       }
       return y;
     }

@@ -69,6 +69,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ReverseListTest.cs" />
     <Compile Include="SearchListTest.cs" />
     <Compile Include="QuickUnionTest.cs" />
     <Compile Include="QuickFindTest.cs" />
